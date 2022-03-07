@@ -14,4 +14,5 @@ There is a mini app for report channels as "Russian aggression".
   api_id = '1234567'
   api_hash = 'b83d79bc8db6fdfae04ba12345678900'
  ```
+ 5. Put channels to file channels.txt (every name on new line). Better to use full name or link
  5. Run command `python main.py`
