@@ -3,7 +3,7 @@ from telethon import TelegramClient
 from telethon import functions, types
 from config import api_id, api_hash
 
-channels = open('channels.txt','r').read().splitlines()
+channels = open('channels.txt','r', encoding="utf8").read().splitlines()
 async def main():
     async with TelegramClient('session', api_id, api_hash) as client:
         for channel_name in channels:
