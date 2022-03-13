@@ -1,6 +1,6 @@
 There is a mini app for report channels as "Russian aggression".
 
-Install telethon before run it
+Install dependency
 
 ```
 python -m pip install --upgrade pip
