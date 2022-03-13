@@ -1,5 +1,12 @@
 There is a mini app for report channels as "Russian aggression".
 
+Install telethon before run it
+
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade telethon
+```
+
 # How to use it?
 1. Install Python.
 2. Go to https://my.telegram.org/ and create app (more infor here https://core.telegram.org/api/obtaining_api_id). Save api_id, api_hash.
