@@ -3,8 +3,8 @@ There is a mini app for report channels as "Russian aggression".
 Install telethon before run it
 
 ```
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade telethon
+python -m pip install --upgrade pip
+python -m pip install --upgrade telethon
 ```
 
 # How to use it?
