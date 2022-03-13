@@ -6,6 +6,9 @@ from config import api_id, api_hash
 
 channels = open('channels.txt','r', encoding="utf8").read().splitlines()
 
+def check_channel_name(strg, search=re.compile(r'[^_A-Za-z0-9.]').search):
+    return not bool(search(strg))
+
 async def search_channel(client, name):
     result = await client(functions.contacts.SearchRequest(
              q=name,
@@ -27,6 +30,10 @@ async def main():
         for channel_name in channels:
             #normalize channel name
             channel_name=channel_name.replace("https://t.me/", "")
+            if not check_channel_name(channel_name):
+                print("{} has incorrect symbols in name".format(channel_name))
+                continue
+
             found_channels = await search_channel(client, channel_name)
 
             #try ban channel if found
