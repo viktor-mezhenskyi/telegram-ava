@@ -6,6 +6,11 @@ from config import api_id, api_hash
 
 channels = open('channels.txt','r', encoding="utf8").read().splitlines()
 
+def get_message():
+    with open('message.txt') as f:
+        message = f.read()
+        return message
+
 def check_channel_name(strg, search=re.compile(r'[^_A-Za-z0-9.]').search):
     return not bool(search(strg))
 
@@ -16,17 +21,18 @@ async def search_channel(client, name):
             ))
     return result.results
 
-async def ban_channel(client, id):
+async def ban_channel(client, id, message):
     response = await client(functions.messages.ReportRequest(
                    peer='channel',
                    id=[id],
                    reason=types.InputReportReasonOther(),
-                   message='Russian aggression'
+                   message=message
                 ))
     return response
 
 async def main():
     async with TelegramClient('session', api_id, api_hash) as client:
+        message = get_message()
         for channel_name in channels:
             #normalize channel name
             channel_name=channel_name.replace("https://t.me/", "")
@@ -39,7 +45,7 @@ async def main():
             #try ban channel if found
             if len(found_channels) > 0:
                 id = found_channels[0].channel_id
-                response = await ban_channel(client, id)
+                response = await ban_channel(client, id, message)
                 if response:
                     print("{} was banned".format(channel_name))
                 else:
