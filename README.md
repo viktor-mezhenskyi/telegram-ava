@@ -3,8 +3,7 @@ There is a mini app for report channels as "Russian aggression".
 Install dependency
 
 ```
-python -m pip install --upgrade pip
-python -m pip install --upgrade telethon
+pip install -r requirements.txt
 ```
 
 # How to use it?
