@@ -21,5 +21,6 @@ python -m pip install --upgrade telethon
   api_id = '1234567'
   api_hash = 'b83d79bc8db6fdfae04ba12345678900'
  ```
- 5. Put channels to file channels.txt (every name on new line). Better to use full name or link
- 5. Run command `python main.py`
+ 5. Put channels to file channels.txt (every name on new line). Better to use full name or link.
+ 6. Run message.txt if you want to change ban message.
+ 7. Run command `python main.py`
