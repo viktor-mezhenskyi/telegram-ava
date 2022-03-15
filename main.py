@@ -28,6 +28,9 @@ async def ban_channel(client, id):
 async def main():
     async with TelegramClient('session', api_id, api_hash) as client:
         for channel_name in channels:
+            channel_name=channel_name.replace(" ", "")
+            if len(channel_name) == 0:
+                continue
             #normalize channel name
             channel_name=channel_name.replace("https://t.me/", "")
             if not check_channel_name(channel_name):
