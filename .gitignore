@@ -8,6 +8,7 @@ config.py
 *.so
 
 *.session
+channels.txt
 
 # Distribution / packaging
 .Python

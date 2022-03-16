@@ -39,14 +39,16 @@ async def main():
                 continue
             #normalize channel name
             channel_name=channel_name.replace("https://t.me/", "")
-            if not check_channel_name(channel_name):
-                print("{} has incorrect symbols in name".format(channel_name))
-                continue
+            # if not check_channel_name(channel_name):
+            #     print("{} has incorrect symbols in name".format(channel_name))
+            #     continue
 
             found_channels = await search_channel(client, channel_name)
-
             #try ban channel if found
             if len(found_channels) > 0:
+                if not hasattr(found_channels[0], 'channel_id'):
+                    print("{} is private. Couldn't found channel.".format(channel_name))
+                    continue
                 id = found_channels[0].channel_id
                 response = await ban_channel(client, id, message)
                 if response:
