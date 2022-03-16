@@ -4,11 +4,12 @@ __pycache__/
 *$py.class
 #config
 config.py
+channels.txt
 # C extensions
 *.so
 
 *.session
-channels.txt
+
 
 # Distribution / packaging
 .Python
