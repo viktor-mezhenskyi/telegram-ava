@@ -6,6 +6,10 @@ from config import api_id, api_hash
 
 channels = open('channels.txt','r', encoding="utf8").read().splitlines()
 
+def normalize_channel_name(channel_name):
+    channel_name = re.sub(".*https","https", channel_name)
+    return channel_name.replace("https://t.me/", "")
+
 def get_message():
     with open('message.txt') as f:
         message = f.read()
@@ -38,7 +42,7 @@ async def main():
             if len(channel_name) == 0:
                 continue
             #normalize channel name
-            channel_name=channel_name.replace("https://t.me/", "")
+            channel_name = normalize_channel_name(channel_name)
             # if not check_channel_name(channel_name):
             #     print("{} has incorrect symbols in name".format(channel_name))
             #     continue
